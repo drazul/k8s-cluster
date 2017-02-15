@@ -8,7 +8,7 @@ In this repository you can find a Vagrant file to setup 2 centos7 VM provisioned
  * On doc folder you can find a PDF file used on speech on Agile CR group
  * On resources you can find a k8s config files for some resources used on speech
 
-## Instructions
+## Instructions to build your own kubernetes cluster
 
 1. Create several VM with vagrant or mount your own infrastructure
 
@@ -33,6 +33,6 @@ In this repository you can find a Vagrant file to setup 2 centos7 VM provisioned
 
  * You can update you replication controller with:
 ...kubectl rolling-update nginx-replication-controller-v1 -f nginx-replication-controller-v2.yaml
-....**Note:** During the update 1. a new replication controller will be started, 2. both replication controllers will be working some minutes and 3. old replication controller will be stopped.
+...**Note:** During the update 1. a new replication controller will be started, 2. both replication controllers will be working some minutes and 3. old replication controller will be stopped.
 
 
