@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    tier: monitoring
+    app: icinga2
+  name: icinga2
+#  namespace: kube-system
+spec:
+  template:
+    metadata:
+      labels:
+        name: icinga2
+    spec:
+      hostPID: true
+      hostIPC: true
+      hostNetwork: true
+      containers:
+        - image: icinga/icinga2
+          name: icinga2
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: icinga2-etc
+              mountPath: /etc/icinga2
+            - name: icinga2-varlib
+              mountPath: /var/lib/icinga2
+      volumes:
+        - name: icinga2-etc
+          hostPath:
+            path: /etc/icinga2
+        - name: icinga2-varlib
+          hostPath:
+            path: /var/lib/icinga2
+
